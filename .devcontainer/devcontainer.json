@@ -2,6 +2,10 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.224.3/containers/java
 {
 	"name": "Kinesis-Playground",
+	"dockerComposeFile": [
+		"../dev-compose.yml",
+		"docker-compose.yml"
+	],
 	"build": {
 		"dockerfile": "Dockerfile",
 		"args": {

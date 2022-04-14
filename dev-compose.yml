@@ -1,0 +1,21 @@
+version: '3.4'
+services:
+
+  kinesis-playground.dev:
+    container_name: kinesis-playground.dev
+      build:
+        context: ./
+        dockerfile: ./.devcontainer/Dockerfile
+      environment:
+        DOCKER_HOST: unix:///var/run/docker-host.sock
+        AWS_REGION: us-west-1
+        AWS_ACCESS_KEY_ID: S3RVER
+        AWS_SECRET_ACCESS_KEY: S3RVER
+      #command: ./.devcontainer/scripts/setup.sh && sleep infinity
+      command: sleep infinity
+  
+  kinesis-playground.kinesis:
+    image: dlsniper/kinesalite
+    command: kinesalite --createStreamMs 5 --updateStreamMs 5
+    ports:
+      - "4567:4567"
